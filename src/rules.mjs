@@ -1,3 +1,6 @@
+// faultline · https://github.com/thefgxdev/faultline
+// Copyright (c) 2026 Felipe Guedes (fgxdev.com). MIT License: keep this notice when you copy or adapt this file.
+//
 // faultline rules. Each rule: id, title, severity, category, files (regex on path), test(ctx) → findings.
 // Rules are heuristics tuned for low false positives: they point at boundaries a human should read. They do not prove bugs.
 // ctx = { path, text, lines, ext, repo: { hasTenant, hasLockfile, deps } }
@@ -36,7 +39,8 @@ export const rules = [
   {
     id: 'swallowed-error', title: 'Error caught and discarded', severity: 'medium', category: 'errors', files: CODE,
     fix: 'Decide at the boundary: retry, degrade or fail. If ignoring is correct, log it with context and say why in a comment.',
-    test: (ctx) => find(ctx, /catch\s*(?:\([^)]*\))?\s*\{\s*(?:\/\/[^\n]*\n\s*)?(?:console\.(?:log|debug)\([^)]*\);?\s*)?\}/g, (m) => ({ evidence: m[0].replace(/\s+/g, ' ').slice(0, 80) })),
+    // a catch whose only content is a comment is considered a deliberate, explained decision and is not flagged
+    test: (ctx) => find(ctx, /catch\s*(?:\([^)]*\))?\s*\{\s*(?:console\.(?:log|debug)\([^)]*\);?\s*)?\}/g, (m) => ({ evidence: m[0].replace(/\s+/g, ' ').slice(0, 80) })),
   },
   {
     id: 'sql-string-concat', title: 'SQL built by string concatenation or interpolation', severity: 'high', category: 'injection', files: SQLISH,
@@ -86,7 +90,8 @@ export const rules = [
   {
     id: 'query-without-tenant', title: 'Query in a multi-tenant codebase without a tenant filter nearby', severity: 'low', category: 'tenancy', files: CODE,
     fix: 'Filter by tenant in every read, or enforce it with row-level security so a forgotten filter returns nothing instead of everything.',
-    test: (ctx) => (!ctx.repo.hasTenant || /tenant|org(?:anization)?Id|workspace/i.test(ctx.path) ? [] : find(ctx, /\.(?:findMany|findFirst|findUnique|find|findAll|select)\s*\(/g, (m, line) => (near(ctx.lines, line - 1, 8, /tenant|organization|orgId|workspace|account_id|accountId|rls|row_level/i) ? null : { evidence: ctx.lines[line - 1].trim().slice(0, 80) }))),
+    // only ORM/query-builder reads; Array.prototype.find and DOM .select() are not queries
+    test: (ctx) => (!ctx.repo.hasTenant || /tenant|org(?:anization)?Id|workspace/i.test(ctx.path) ? [] : find(ctx, /\.(?:findMany|findFirst|findUnique|findAll|findOne)\s*\(|\bfrom\(\s*['"][^'"]+['"]\s*\)\s*\.select\s*\(|\.query\(\s*['"`]\s*SELECT\b/gi, (m, line) => (near(ctx.lines, line - 1, 8, /tenant|organization|orgId|workspace|account_id|accountId|rls|row_level/i) ? null : { evidence: ctx.lines[line - 1].trim().slice(0, 80) }))),
   },
   {
     id: 'select-star', title: 'SELECT * in application code', severity: 'low', category: 'data', files: SQLISH,
