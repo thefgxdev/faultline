@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use faultline in research, a talk or a product, please cite it as below."
+title: "faultline: find the failure nobody finds"
+abstract: "A zero-dependency auditor for the boundaries in a codebase: outbound calls without timeouts, retries without backoff, money endpoints without idempotency keys, swallowed errors, SQL and shell built from strings, secrets in code, cookies without flags, queries that forget the tenant."
+type: software
+version: 0.1.0
+date-released: 2026-09-25
+license: MIT
+repository-code: "https://github.com/thefgxdev/faultline"
+url: "https://fgxdev.com"
+authors:
+  - family-names: Guedes
+    given-names: Felipe
+    website: "https://fgxdev.com"
+    email: contato@fgxdev.com
+    city: Toledo
+    region: Paraná
+    country: BR
+keywords:
+  - static analysis
+  - security
+  - reliability
+  - system design
+  - idempotency
+  - code review
