@@ -3,9 +3,9 @@ message: "If you use faultline in research, a talk or a product, please cite it 
 title: "faultline: find the failure nobody finds"
 abstract: "A zero-dependency auditor for the boundaries in a codebase: outbound calls without timeouts, retries without backoff, money endpoints without idempotency keys, swallowed errors, SQL and shell built from strings, secrets in code, cookies without flags, queries that forget the tenant."
 type: software
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-09-25
-license: MIT
+license: AGPL-3.0-or-later
 repository-code: "https://github.com/thefgxdev/faultline"
 url: "https://fgxdev.com"
 authors:
