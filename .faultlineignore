@@ -1,0 +1,2 @@
+# paths faultline skips in this repository (globs, one per line)
+test/fixtures/**
