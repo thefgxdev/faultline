@@ -13,11 +13,13 @@ Rules must be explainable in one sentence and must ship with the fix. Rules that
 
 ## Sign-off
 
-By submitting a pull request you certify the Developer Certificate of Origin (developercertificate.org): the contribution is yours to give and you agree it is released under the MIT License of this project. Add `Signed-off-by: Your Name <email>` to your commits.
+By submitting a pull request you certify the Developer Certificate of Origin (developercertificate.org): the contribution is yours to give and you agree it is released under the AGPL-3.0-or-later license of this project. Add `Signed-off-by: Your Name <email>` to your commits.
+
+You keep the copyright of your contribution. You also grant the maintainer, Felipe Guedes, a perpetual, irrevocable, worldwide, royalty-free right to distribute your contribution as part of faultline under the AGPL-3.0-or-later and, as part of faultline only, under a separate commercial license. This is what allows the project to stay free for everyone while offering a commercial license to companies that need a closed modification (see `AUTHORSHIP.md`).
 
 ## Attribution
 
-faultline is created and maintained by Felipe Guedes (fgxdev.com). Contributors are credited in the release notes. Forks and derived tools must keep the copyright notice and the LICENSE, as the MIT License requires; a mention "based on faultline by Felipe Guedes" is appreciated.
+faultline is created and maintained by Felipe Guedes (fgxdev.com). Contributors are credited in the release notes. Forks and derived tools must keep the copyright notice, the NOTICE file and the LICENSE, and must publish their modified source under the same license, as the AGPL requires. A mention "based on faultline by Felipe Guedes" is appreciated.
 
 ## Issues
 
