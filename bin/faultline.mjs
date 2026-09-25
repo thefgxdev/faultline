@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // faultline · https://github.com/thefgxdev/faultline
-// Copyright (c) 2026 Felipe Guedes (fgxdev.com). MIT License: keep this notice when you copy or adapt this file.
+// Copyright (c) 2026 Felipe Guedes (fgxdev.com). Licensed under AGPL-3.0-or-later: modified copies must stay open and keep this notice.
 //
 // faultline CLI. Usage: faultline [dir] [--fail-on critical|high|medium|low] [--min info|low|medium|high] [--json] [--md report.md] [--ignore "glob" ...]
 import { writeFile, readFile } from 'node:fs/promises';
