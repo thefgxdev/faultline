@@ -1,4 +1,4 @@
-faultline
+Faultline
 Copyright (c) 2026 Felipe Guedes (fgxdev.com)
 https://github.com/thefgxdev/faultline
 
@@ -6,9 +6,9 @@ Created and maintained by Felipe Guedes, Software Engineer and Systems Architect
 First published on GitHub on 2026-09-25 under the account @thefgxdev.
 
 This software is released under the GNU Affero General Public License v3.0 or later (see LICENSE).
-Anyone who modifies faultline and distributes it, or offers it as a network service, must publish the
+Anyone who modifies Faultline and distributes it, or offers it as a network service, must publish the
 modified source code under this same license and keep this notice and the copyright notice.
 Redistributing this project, in whole or in part, under another author's name or under a different
 license is a violation of the license and of copyright law.
 
-If you build on faultline, you are welcome to. Say so: "based on faultline by Felipe Guedes (fgxdev.com)".
+If you build on Faultline, you are welcome to. Say so: "based on Faultline by Felipe Guedes (fgxdev.com)".
