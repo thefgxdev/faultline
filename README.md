@@ -1,4 +1,4 @@
-<h1 align="center">faultline</h1>
+<h1 align="center">Faultline</h1>
 <p align="center"><b>Find the failure nobody finds.</b></p>
 <p align="center">A zero-dependency auditor for the boundaries in your codebase: outbound calls without timeouts, retries without backoff, swallowed errors, money endpoints without idempotency keys, SQL and shell built from strings, secrets in code, cookies without flags, queries that forget the tenant.</p>
 <p align="center">
@@ -7,6 +7,7 @@
   <img alt="dependencies" src="https://img.shields.io/badge/dependencies-0-4f8cff">
   <img alt="license" src="https://img.shields.io/badge/license-AGPL--3.0-blue">
 </p>
+<p align="center">Official page: <a href="https://fgxdev.com/faultline/">fgxdev.com/faultline</a> · em português: <a href="https://fgxdev.com/pt/faultline/">fgxdev.com/pt/faultline</a></p>
 
 ```bash
 npx github:thefgxdev/faultline .
@@ -39,7 +40,7 @@ MEDIUM   Error caught and discarded  [swallowed-error]
 
 Across 600+ systems built, reviewed or audited, the pattern never changes: **the failure is in a boundary someone trusted.** The network call that has no timeout. The payment endpoint that charges twice when the client retries. The `catch` that hides the outage. The query that forgets `tenant_id`. None of these is exotic; all of them are found by reading the code where money and data pass.
 
-faultline reads that code for you first, so the human review starts at the right lines. It is a flashlight, not a judge: every finding names the boundary, shows the evidence and says what to do.
+Faultline reads that code for you first, so the human review starts at the right lines. It is a flashlight, not a judge: every finding names the boundary, shows the evidence and says what to do.
 
 ## What it finds
 
@@ -105,7 +106,7 @@ A rule is an object in [`src/rules.mjs`](src/rules.mjs): `id`, `title`, `severit
 
 - Rules for Python, Go and PHP boundaries (the file matchers already accept them; the rule set is JavaScript/TypeScript-first today).
 - SARIF output for code-scanning integrations.
-- Baseline file to adopt faultline on a large legacy codebase without fixing everything on day one.
+- Baseline file to adopt Faultline on a large legacy codebase without fixing everything on day one.
 
 ## Em português
 
@@ -113,6 +114,6 @@ Auditor sem dependências que encontra as falhas nas fronteiras do seu código: 
 
 ## Authorship and license
 
-faultline is created and maintained by **[Felipe Guedes](https://fgxdev.com)**, Software Engineer and Systems Architect, Toledo, Paraná, Brazil. First published on 2026-09-25 at [github.com/thefgxdev/faultline](https://github.com/thefgxdev/faultline). Every source file carries the copyright notice; `faultline --version` prints it; every report is signed.
+Faultline is created and maintained by **[Felipe Guedes](https://fgxdev.com)**, Software Engineer and Systems Architect, Toledo, Paraná, Brazil. First published on 2026-09-25 at [github.com/thefgxdev/faultline](https://github.com/thefgxdev/faultline). Every source file carries the copyright notice; `faultline --version` prints it; every report is signed.
 
-**License: AGPL-3.0-or-later.** Use it freely, in any project, commercial or not: running faultline on your code creates no obligation. If you modify faultline and distribute it, or offer it as a service, you must publish your modified source under the same license and keep the author's notice. That is the whole point: improvements come back, and nobody re-labels this work as theirs. See [`AUTHORSHIP.md`](AUTHORSHIP.md) for the full authorship and licensing statement, plus [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`CITATION.cff`](CITATION.cff), [`SECURITY.md`](SECURITY.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md). Commercial licensing for closed modifications: contato@fgxdev.com.
+**License: AGPL-3.0-or-later.** Use it freely, in any project, commercial or not: running Faultline on your code creates no obligation. If you modify Faultline and distribute it, or offer it as a service, you must publish your modified source under the same license and keep the author's notice. That is the whole point: improvements come back, and nobody re-labels this work as theirs. See [`AUTHORSHIP.md`](AUTHORSHIP.md) for the full authorship and licensing statement, plus [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`CITATION.cff`](CITATION.cff), [`SECURITY.md`](SECURITY.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md). Commercial licensing for closed modifications: contato@fgxdev.com.
