@@ -8,7 +8,7 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "engines": { "node": ">=18" },
-  "bin": { "faultline": "bin/faultline.mjs" },
+  "bin": { "Faultline": "bin/faultline.mjs" },
   "files": ["bin", "src", "README.md", "LICENSE", "NOTICE", "CITATION.cff", "AUTHORSHIP.md"],
   "funding": "https://fgxdev.com",
   "scripts": {
@@ -16,5 +16,5 @@
     "scan": "node bin/faultline.mjs ."
   },
   "repository": { "type": "git", "url": "https://github.com/thefgxdev/faultline" },
-  "homepage": "https://fgxdev.com"
+  "homepage": "https://fgxdev.com/faultline/"
 }
