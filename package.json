@@ -1,0 +1,18 @@
+{
+  "name": "faultline",
+  "version": "0.1.0",
+  "description": "Find the failure nobody finds. A zero-dependency auditor for the boundaries in your codebase: timeouts, retries, idempotency, swallowed errors, injection, secrets, cookies, tenant isolation.",
+  "keywords": ["audit", "security", "reliability", "static-analysis", "system-design", "idempotency", "timeouts", "secrets", "sql-injection", "code-review"],
+  "author": "Felipe Guedes <contato@fgxdev.com> (https://fgxdev.com)",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "bin": { "faultline": "bin/faultline.mjs" },
+  "files": ["bin", "src", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node test/run.mjs",
+    "scan": "node bin/faultline.mjs ."
+  },
+  "repository": { "type": "git", "url": "https://github.com/thefgxdev/faultline" },
+  "homepage": "https://fgxdev.com"
+}
