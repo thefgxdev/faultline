@@ -1,13 +1,13 @@
 cff-version: 1.2.0
-message: "If you use faultline in research, a talk or a product, please cite it as below."
-title: "faultline: find the failure nobody finds"
+message: "If you use Faultline in research, a talk or a product, please cite it as below."
+title: "Faultline: find the failure nobody finds"
 abstract: "A zero-dependency auditor for the boundaries in a codebase: outbound calls without timeouts, retries without backoff, money endpoints without idempotency keys, swallowed errors, SQL and shell built from strings, secrets in code, cookies without flags, queries that forget the tenant."
 type: software
 version: 0.1.1
 date-released: 2026-09-25
 license: AGPL-3.0-or-later
 repository-code: "https://github.com/thefgxdev/faultline"
-url: "https://fgxdev.com"
+url: "https://fgxdev.com/faultline/"
 authors:
   - family-names: Guedes
     given-names: Felipe
