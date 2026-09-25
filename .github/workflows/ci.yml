@@ -15,4 +15,5 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: node test/run.mjs
-      - run: node bin/faultline.mjs src --fail-on high
+      - run: node test/edge.mjs
+      - run: node bin/faultline.mjs . --fail-on high
