@@ -1,0 +1,21 @@
+name: faultline
+description: Find the failure nobody finds. Scans a repository for boundary failures (timeouts, retries, idempotency, injection, secrets, cookies, tenant isolation) and fails the job above a severity.
+author: Felipe Guedes (fgxdev.com)
+branding:
+  icon: alert-triangle
+  color: blue
+inputs:
+  path:
+    description: Directory to scan
+    default: .
+  fail-on:
+    description: Fail when a finding is at or above this severity (critical, high, medium, low, info)
+    default: high
+  report:
+    description: Path of the Markdown report to write
+    default: faultline-report.md
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: node ${{ github.action_path }}/bin/faultline.mjs "${{ inputs.path }}" --fail-on "${{ inputs.fail-on }}" --md "${{ inputs.report }}" --no-color
