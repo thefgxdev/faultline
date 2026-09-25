@@ -1,4 +1,4 @@
-// faultline · https://github.com/thefgxdev/faultline · Copyright (c) 2026 Felipe Guedes (fgxdev.com) · MIT
+// faultline · https://github.com/thefgxdev/faultline · Copyright (c) 2026 Felipe Guedes (fgxdev.com) · AGPL-3.0-or-later
 // Tests: the bad fixture must trigger each expected rule; the good fixture must stay quiet.
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
