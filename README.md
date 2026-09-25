@@ -5,7 +5,7 @@
   <a href="https://github.com/thefgxdev/faultline/actions/workflows/ci.yml"><img alt="ci" src="https://github.com/thefgxdev/faultline/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="node" src="https://img.shields.io/badge/node-%3E%3D18-339933?logo=nodedotjs&logoColor=white">
   <img alt="dependencies" src="https://img.shields.io/badge/dependencies-0-4f8cff">
-  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue">
+  <img alt="license" src="https://img.shields.io/badge/license-AGPL--3.0-blue">
 </p>
 
 ```bash
@@ -115,4 +115,4 @@ Auditor sem dependências que encontra as falhas nas fronteiras do seu código: 
 
 faultline is created and maintained by **[Felipe Guedes](https://fgxdev.com)**, Software Engineer and Systems Architect, Toledo, Paraná, Brazil. First published on 2026-09-25 at [github.com/thefgxdev/faultline](https://github.com/thefgxdev/faultline). Every source file carries the copyright notice; `faultline --version` prints it; every report is signed.
 
-MIT License: use it, adapt it, ship it, keep the notice. See [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`CITATION.cff`](CITATION.cff), [`SECURITY.md`](SECURITY.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md).
+**License: AGPL-3.0-or-later.** Use it freely, in any project, commercial or not: running faultline on your code creates no obligation. If you modify faultline and distribute it, or offer it as a service, you must publish your modified source under the same license and keep the author's notice. That is the whole point: improvements come back, and nobody re-labels this work as theirs. See [`AUTHORSHIP.md`](AUTHORSHIP.md) for the full authorship and licensing statement, plus [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`CITATION.cff`](CITATION.cff), [`SECURITY.md`](SECURITY.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md). Commercial licensing for closed modifications: contato@fgxdev.com.
