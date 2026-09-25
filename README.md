@@ -111,6 +111,8 @@ A rule is an object in [`src/rules.mjs`](src/rules.mjs): `id`, `title`, `severit
 
 Auditor sem dependências que encontra as falhas nas fronteiras do seu código: chamadas sem timeout, retentativas sem backoff, erros engolidos, endpoints de pagamento sem chave de idempotência, SQL e shell montados por string, segredos no código, cookies sem flags, consultas que esquecem o tenant. Um comando, relatório em Markdown, bloqueia o CI. Feito a partir da prática de auditoria descrita em [fgxdev.com/pt/auditoria-de-software-e-seguranca](https://fgxdev.com/pt/auditoria-de-software-e-seguranca/).
 
-## License
+## Authorship and license
 
-MIT · [Felipe Guedes](https://fgxdev.com)
+faultline is created and maintained by **[Felipe Guedes](https://fgxdev.com)**, Software Engineer and Systems Architect, Toledo, Paraná, Brazil. First published on 2026-09-25 at [github.com/thefgxdev/faultline](https://github.com/thefgxdev/faultline). Every source file carries the copyright notice; `faultline --version` prints it; every report is signed.
+
+MIT License: use it, adapt it, ship it, keep the notice. See [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), [`CITATION.cff`](CITATION.cff), [`SECURITY.md`](SECURITY.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md).
