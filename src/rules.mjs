@@ -1,5 +1,5 @@
 // faultline · https://github.com/thefgxdev/faultline
-// Copyright (c) 2026 Felipe Guedes (fgxdev.com). MIT License: keep this notice when you copy or adapt this file.
+// Copyright (c) 2026 Felipe Guedes (fgxdev.com). Licensed under AGPL-3.0-or-later: modified copies must stay open and keep this notice.
 //
 // faultline rules. Each rule: id, title, severity, category, files (regex on path), test(ctx) → findings.
 // Rules are heuristics tuned for low false positives: they point at boundaries a human should read. They do not prove bugs.
@@ -39,13 +39,16 @@ export const rules = [
   {
     id: 'swallowed-error', title: 'Error caught and discarded', severity: 'medium', category: 'errors', files: CODE,
     fix: 'Decide at the boundary: retry, degrade or fail. If ignoring is correct, log it with context and say why in a comment.',
-    // a catch whose only content is a comment is considered a deliberate, explained decision and is not flagged
-    test: (ctx) => find(ctx, /catch\s*(?:\([^)]*\))?\s*\{\s*(?:console\.(?:log|debug)\([^)]*\);?\s*)?\}/g, (m) => ({ evidence: m[0].replace(/\s+/g, ' ').slice(0, 80) })),
+    // a catch whose only content is a comment is a deliberate, explained decision and is not flagged;
+    // a catch that only logs is flagged only when the log does not mention the caught error (the error itself is dropped)
+    test: (ctx) => find(ctx, /catch\s*(?:\(\s*([A-Za-z_$][\w$]*)?[^)]*\))?\s*\{\s*(?:console\.(?:log|debug)\(([^)]*)\);?\s*)?\}/g, (m) => (m[2] !== undefined && m[1] && new RegExp(`\\b${m[1]}\\b`).test(m[2]) ? null : { evidence: m[0].replace(/\s+/g, ' ').slice(0, 80) })),
   },
   {
     id: 'sql-string-concat', title: 'SQL built by string concatenation or interpolation', severity: 'high', category: 'injection', files: SQLISH,
     fix: 'Use parameterised queries ($1, ?, named parameters) or the query builder\'s bindings. Never interpolate user input into SQL.',
-    test: (ctx) => find(ctx, /(['"`])\s*(?:SELECT|INSERT|UPDATE|DELETE|WHERE)\b[^'"`\n]*(?:\$\{[^}]+\}|['"`]\s*\+\s*[A-Za-z_])/gi, (m, line) => ({ evidence: ctx.lines[line - 1].trim().slice(0, 80) })),
+    // the string must look like SQL: a second clause keyword followed by an operand within two lines.
+    // An English commit message beginning with the word Update, or Buffer.from(...), is not SQL.
+    test: (ctx) => find(ctx, /(['"`])\s*(?:SELECT|INSERT|UPDATE|DELETE|WHERE)\b[^'"`\n]*(?:\$\{[^}]+\}|['"`]\s*\+\s*[A-Za-z_])/gi, (m, line) => (near(ctx.lines, line - 1, 2, /\b(?:from|into|set|where|join|limit|order\s+by|group\s+by)\s+[\w"'`$*]|\bvalues\s*\(/i) ? { evidence: ctx.lines[line - 1].trim().slice(0, 80) } : null)),
   },
   {
     id: 'shell-exec-interpolation', title: 'Shell command built from variables', severity: 'high', category: 'injection', files: CODE,
@@ -123,7 +126,7 @@ export const rules = [
 export const repoRules = [
   {
     id: 'no-lockfile', title: 'No lockfile committed', severity: 'medium', category: 'supply-chain',
-    fix: 'Commit package-lock.json, pnpm-lock.yaml or yarn.lock so every install is reproducible.',
+    fix: 'Commit package-lock.json, pnpm-lock.yaml, yarn.lock or bun.lock so every install is reproducible.',
     test: (repo) => (repo.hasPackageJson && !repo.hasLockfile ? [{ path: 'package.json', line: 1, evidence: 'package.json without a lockfile' }] : []),
   },
   {
