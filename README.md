@@ -10,6 +10,8 @@
 
 ```bash
 npx github:thefgxdev/faultline .
+# without git installed:
+npx https://codeload.github.com/thefgxdev/faultline/tar.gz/main .
 ```
 
 ```
