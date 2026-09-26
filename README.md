@@ -1,4 +1,9 @@
-<h1 align="center">Faultline</h1>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+    <img alt="Faultline · find the failure nobody finds" src="assets/logo-light.png" width="640">
+  </picture>
+</p>
 <p align="center"><b>Find the failure nobody finds.</b></p>
 <p align="center">A zero-dependency auditor for the boundaries in your codebase: outbound calls without timeouts, retries without backoff, swallowed errors, money endpoints without idempotency keys, SQL and shell built from strings, secrets in code, cookies without flags, queries that forget the tenant.</p>
 <p align="center">
